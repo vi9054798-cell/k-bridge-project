@@ -20,7 +20,7 @@ export default function OrdersTrackingPage() {
           <p className="text-gray-400 mt-1">Mã đơn: <span className="font-bold text-purple-400">KB-2024-04-16-12345</span></p>
         </div>
         <span className="bg-emerald-900/30 text-emerald-400 px-4 py-2 rounded-full text-sm font-bold border border-emerald-500/50">
-          <i className="fa-solid fa-shield-check mr-2"></i>Đã Ký Quỹ K-Bridge
+          <i className="fa-solid fa-shield-check mr-2"></i>Đã kích hoạt Bảo hộ
         </span>
       </div>
 
