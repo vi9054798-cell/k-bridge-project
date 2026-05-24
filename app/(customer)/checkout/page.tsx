@@ -1,64 +1,55 @@
+// app/(customer)/checkout/page.tsx
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
 
 export default function CheckoutPage() {
   const [agreed, setAgreed] = useState(false);
+  const [status, setStatus] = useState<'pending' | 'protected'>('pending');
+
+  const handlePayment = () => {
+    if (agreed) {
+      setStatus('protected');
+      alert("Thanh toán thành công! Trạng thái đơn: Pending Protection. Tiền của bạn đã được bảo vệ.");
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-[#0d0e15] text-white py-12">
-      <div className="max-w-3xl mx-auto px-4">
-        <h1 className="text-3xl font-black mb-8">Xác nhận đơn hàng & Bảo hộ</h1>
-
-        {/* 1. Tóm tắt đơn hàng */}
+    <div className="min-h-screen bg-[#0d0e15] pt-24 px-4 text-white">
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-3xl font-black mb-8">Xác nhận thanh toán</h1>
+        
+        {/* Box Trạng thái */}
         <div className="bg-[#131520] p-6 rounded-2xl border border-gray-800 mb-6">
           <div className="flex justify-between items-center">
-            <span className="text-gray-400">Sản phẩm: NewJeans - Get Up</span>
-            <span className="font-bold">580.000₫</span>
+            <span>Trạng thái giao dịch:</span>
+            <span className={`px-3 py-1 rounded-full text-sm font-bold ${status === 'protected' ? 'bg-emerald-900 text-emerald-400' : 'bg-amber-900 text-amber-400'}`}>
+              {status === 'protected' ? 'Pending Protection' : 'Chờ xác nhận'}
+            </span>
           </div>
         </div>
 
-        {/* 2. Cam kết pháp lý (Phần quan trọng nhất) */}
-        <div className="bg-amber-950/10 p-6 rounded-2xl border border-amber-900/40 mb-6">
-          <div className="flex gap-4">
-            <div className="text-amber-500 text-2xl">
-              <i className="fa-solid fa-shield-halved"></i>
-            </div>
-            <div>
-              <h3 className="font-bold text-amber-500">Chính sách Pending Protection</h3>
-              <p className="text-sm text-gray-400 mt-1">
-                Tiền của bạn sẽ được giữ trong ví ký quỹ (Escrow) của k-Bridge. 
-                Chúng tôi chỉ giải ngân sau khi đơn hàng được xác thực vận chuyển.
-                Nếu chiến dịch gom đơn thất bại, hoàn tiền 100% tự động.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* 3. Checkbox Cam kết */}
-        <div className="flex items-start gap-3 mb-8">
-          <input 
-            type="checkbox" 
-            className="mt-1 w-4 h-4 rounded border-gray-700 bg-gray-900"
-            checked={agreed}
-            onChange={(e) => setAgreed(e.target.checked)}
-          />
-          <label className="text-sm text-gray-300">
-            Tôi đồng ý với <span className="text-purple-400 underline cursor-pointer">Điều khoản Cam kết Bảo hộ</span> 
-            và xác nhận đây là giao dịch an toàn được đóng dấu mộc kỹ thuật số bởi k-Bridge.
+        {/* Checkbox Pháp lý */}
+        <div className="bg-[#131520] p-6 rounded-2xl border border-gray-800 mb-6">
+          <label className="flex items-start gap-3 cursor-pointer">
+            <input 
+              type="checkbox" 
+              checked={agreed} 
+              onChange={(e) => setAgreed(e.target.checked)}
+              className="mt-1 accent-purple-600"
+            />
+            <span className="text-sm text-gray-300">
+              Tôi đồng ý với <b>Điều khoản Cam kết Bảo hộ</b> và xác nhận đây là giao dịch an toàn được đóng dấu mộc kỹ thuật số bởi k-Bridge. Tôi hiểu rằng tiền của tôi được giữ trong tài khoản đảm bảo cho đến khi đơn hàng hoàn tất.
+            </span>
           </label>
         </div>
 
-        {/* 4. Nút thanh toán */}
         <button 
+          onClick={handlePayment}
           disabled={!agreed}
-          className={`w-full py-4 rounded-xl font-bold transition flex items-center justify-center gap-2 ${
-            agreed 
-            ? 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500' 
-            : 'bg-gray-800 text-gray-500 cursor-not-allowed'
-          }`}
+          className={`w-full py-4 rounded-xl font-bold ${agreed ? 'bg-purple-600 hover:bg-purple-500' : 'bg-gray-800 text-gray-500'}`}
         >
-          <i className="fa-solid fa-lock"></i> THANH TOÁN KÝ QUỸ (ESCROW)
+          {status === 'protected' ? 'Đã thanh toán (Đang bảo vệ)' : 'Thanh toán ngay'}
         </button>
       </div>
     </div>
