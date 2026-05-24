@@ -1,57 +1,33 @@
-// app/(customer)/checkout/page.tsx
 "use client";
-import React, { useState } from 'react';
-import Link from 'next/link';
+import { useState } from 'react';
+import LegalContractPopup from '@/components/LegalContractPopup';
 
 export default function CheckoutPage() {
-  const [agreed, setAgreed] = useState(false);
-  const [status, setStatus] = useState<'pending' | 'protected'>('pending');
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const handlePayment = () => {
-    if (agreed) {
-      setStatus('protected');
-      alert("Thanh toán thành công! Trạng thái đơn: Pending Protection. Tiền của bạn đã được bảo vệ.");
-    }
+    // Mở popup khi bấm thanh toán
+    setIsPopupOpen(true); 
+  };
+
+  const handleAcceptContract = () => {
+    // Xử lý khi user chấp nhận (ví dụ: chuyển trạng thái đơn hàng thành Protected)
+    alert("Thanh toán thành công & Chế độ Pending Protection được kích hoạt!");
   };
 
   return (
-    <div className="min-h-screen bg-[#0d0e15] pt-24 px-4 text-white">
-      <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-black mb-8">Xác nhận thanh toán</h1>
-        
-        {/* Box Trạng thái */}
-        <div className="bg-[#131520] p-6 rounded-2xl border border-gray-800 mb-6">
-          <div className="flex justify-between items-center">
-            <span>Trạng thái giao dịch:</span>
-            <span className={`px-3 py-1 rounded-full text-sm font-bold ${status === 'protected' ? 'bg-emerald-900 text-emerald-400' : 'bg-amber-900 text-amber-400'}`}>
-              {status === 'protected' ? 'Pending Protection' : 'Chờ xác nhận'}
-            </span>
-          </div>
-        </div>
+    <div className="pt-24 px-4 max-w-2xl mx-auto text-white">
+      {/* ... nội dung trang thanh toán của bạn ... */}
+      <button onClick={handlePayment} className="w-full bg-purple-600 py-3 rounded-lg">
+        Thanh toán
+      </button>
 
-        {/* Checkbox Pháp lý */}
-        <div className="bg-[#131520] p-6 rounded-2xl border border-gray-800 mb-6">
-          <label className="flex items-start gap-3 cursor-pointer">
-            <input 
-              type="checkbox" 
-              checked={agreed} 
-              onChange={(e) => setAgreed(e.target.checked)}
-              className="mt-1 accent-purple-600"
-            />
-            <span className="text-sm text-gray-300">
-              Tôi đồng ý với <b>Điều khoản Cam kết Bảo hộ</b> và xác nhận đây là giao dịch an toàn được đóng dấu mộc kỹ thuật số bởi k-Bridge. Tôi hiểu rằng tiền của tôi được giữ trong tài khoản đảm bảo cho đến khi đơn hàng hoàn tất.
-            </span>
-          </label>
-        </div>
-
-        <button 
-          onClick={handlePayment}
-          disabled={!agreed}
-          className={`w-full py-4 rounded-xl font-bold ${agreed ? 'bg-purple-600 hover:bg-purple-500' : 'bg-gray-800 text-gray-500'}`}
-        >
-          {status === 'protected' ? 'Đã thanh toán (Đang bảo vệ)' : 'Thanh toán ngay'}
-        </button>
-      </div>
+      {/* Tích hợp Popup */}
+      <LegalContractPopup 
+        isOpen={isPopupOpen} 
+        onClose={() => setIsPopupOpen(false)} 
+        onAccept={handleAcceptContract}
+      />
     </div>
   );
 }
