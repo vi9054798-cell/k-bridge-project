@@ -80,11 +80,10 @@ export default function RegisterPage() {
                   <i className="fa-brands fa-apple"></i> Apple
                 </button>
                 <button className="w-full bg-[#FEE500] hover:bg-[#e5ce00] text-black font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2">
-                  <i className="fa-solid fa-comment"></i> Kakao / Zalo
+                  <i className="fa-solid fa-comment"></i> Facebook
                 </button>
               </div>
             </div>
-
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px bg-gray-800 flex-1"></div>
               <span className="text-xs text-gray-500 font-medium uppercase">Hoặc đăng ký thủ công</span>
