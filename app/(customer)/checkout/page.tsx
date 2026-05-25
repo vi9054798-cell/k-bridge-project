@@ -87,7 +87,7 @@ export default function CheckoutPage() {
                   <span>{formatCurrency(subtotal)}</span>
                 </div>
                 <div className="flex justify-between text-sm text-gray-400">
-                  <span>Phí ship (Nội địa Hàn & Quốc tế)</span>
+                  <span>Phí ship (Nội địa Việt Nam)</span>
                   <span>{formatCurrency(shipping)}</span>
                 </div>
               </div>
