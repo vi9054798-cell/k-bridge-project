@@ -8,9 +8,8 @@ export default function PreGomHubPage() {
   const [isPollOpen, setIsPollOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
 
-  // Form States cho Popup Khảo sát
+  // Form States cho Popup Khảo sát (Đã bỏ state selectedBias)
   const [selectedVersion, setSelectedVersion] = useState('');
-  const [selectedBias, setSelectedBias] = useState('');
 
   // Dữ liệu giả lập cho thẻ Khảo sát
   const interestCheckCampaigns = [
@@ -43,14 +42,14 @@ export default function PreGomHubPage() {
 
   const handleSubmitPoll = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedVersion || !selectedBias) {
-      toast.error("Vui lòng chọn đầy đủ phiên bản và Bias của bạn!");
+    // Đã cập nhật logic validate: Chỉ kiểm tra selectedVersion
+    if (!selectedVersion) {
+      toast.error("Vui lòng chọn phiên bản mà bạn muốn mua!");
       return;
     }
     toast.success("Cảm ơn bạn! k-Bridge sẽ thông báo ngay khi mở GOM.", { icon: '💌' });
     setIsPollOpen(false);
     setSelectedVersion('');
-    setSelectedBias('');
   };
 
   return (
@@ -129,7 +128,7 @@ export default function PreGomHubPage() {
         </div>
       )}
 
-      {/* Tab Đang mở GOM (Trống - Chờ cập nhật dữ liệu) */}
+      {/* Tab Đang mở GOM */}
       {activeTab === 'active-gom' && (
         <div className="text-center py-20 bg-[#131520] rounded-2xl border border-gray-800 animate-fade-in">
           <i className="fa-solid fa-box-open text-4xl text-gray-600 mb-4"></i>
@@ -149,9 +148,9 @@ export default function PreGomHubPage() {
             <p className="text-sm text-gray-400 mb-6 line-clamp-1">{selectedProduct}</p>
 
             <form onSubmit={handleSubmitPoll} className="space-y-6">
-              {/* Câu 1: Phiên bản */}
+              {/* Câu 1: Phiên bản (Đã bỏ chữ "1." vì giờ chỉ còn 1 câu hỏi) */}
               <div className="space-y-3">
-                <label className="block text-sm font-bold text-gray-300">1. Bạn muốn mua phiên bản nào?</label>
+                <label className="block text-sm font-bold text-gray-300">Bạn muốn mua phiên bản nào?</label>
                 <div className="grid grid-cols-1 gap-2">
                   {['Bản Photobook', 'Bản Digipack', 'Bản Set cả bộ'].map((ver) => (
                     <label key={ver} className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition ${selectedVersion === ver ? 'border-purple-500 bg-purple-900/20 text-white' : 'border-gray-700 bg-gray-900 text-gray-400 hover:border-gray-500'}`}>
@@ -165,22 +164,7 @@ export default function PreGomHubPage() {
                 </div>
               </div>
 
-              {/* Câu 2: Bias */}
-              <div className="space-y-3">
-                <label className="block text-sm font-bold text-gray-300">2. Bạn muốn ưu tiên lấy card của thành viên nào?</label>
-                <select 
-                  value={selectedBias} 
-                  onChange={(e) => setSelectedBias(e.target.value)}
-                  className="w-full bg-gray-900 border border-gray-700 rounded-xl p-3.5 text-white focus:border-purple-500 focus:outline-none transition text-sm appearance-none"
-                >
-                  <option value="" disabled>-- Chọn thành viên (Bias) --</option>
-                  {/* Lấy list member từ array tùy theo sản phẩm, ở đây hiển thị chung để demo */}
-                  {interestCheckCampaigns[0].members.map((member) => (
-                    <option key={member} value={member}>{member}</option>
-                  ))}
-                  <option value="ot">Mua nguyên Set (Không tách lẻ)</option>
-                </select>
-              </div>
+              {/* Phần chọn Bias đã được xóa hoàn toàn theo yêu cầu */}
 
               {/* Cam kết & Nút Submit */}
               <div className="pt-2">
