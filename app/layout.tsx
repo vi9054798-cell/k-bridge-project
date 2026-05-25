@@ -1,34 +1,33 @@
-// app/layout.tsx
-import type { Metadata } from "next";
-import "./globals.css"; // Sửa lại đường dẫn chuẩn để Vercel nhận diện được Tailwind CSS v4
-import { Toaster } from 'react-hot-toast';
+import './globals.css';
 import Navbar from '@/components/Navbar';
 import CartDrawer from '@/components/CartDrawer';
-
-export const metadata: Metadata = {
-  title: "k-Bridge",
-  description: "Secure Fan-Economy System",
-};
+import Footer from '@/components/Footer';
+import { Toaster } from 'react-hot-toast';
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="vi">
       <head>
-        {/* Nhúng FontAwesome trực tiếp ở Layout để đảm bảo hiển thị đầy đủ icon Navbar, Profile và Giỏ hàng */}
-        <link 
-          rel="stylesheet" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-        />
+        {/* FontAwesome CDN */}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       </head>
       <body className="bg-[#0d0e15] text-white antialiased">
+        {/* Các component chức năng cũ giữ nguyên */}
         <Toaster position="bottom-right" reverseOrder={false} />
         <Navbar />
         <CartDrawer />
-        <main>{children}</main>
+        
+        {/* Nội dung chính của trang */}
+        <main className="min-h-screen">
+          {children}
+        </main>
+
+        {/* Chân trang mới thêm vào */}
+        <Footer />
       </body>
     </html>
   );
