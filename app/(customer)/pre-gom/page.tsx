@@ -25,7 +25,7 @@ export default function PreGomHubPage() {
     },
     {
       id: 2,
-      name: "GOM Lightstick Ver.3 - SEVENTEEN Official",
+      name: "GOM BITE NOW  - MEOVV Official",
       estimatedPrice: "950.000đ - 1.050.000đ",
       currentCommits: 8,
       moq: 30,
