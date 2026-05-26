@@ -30,7 +30,7 @@ export default function LegalContractPopup({ isOpen, onClose, onAccept }: LegalC
           
           <ol className="list-decimal list-inside space-y-3">
             <li>
-              <b>Chế độ Pending Protection:</b> Khi bạn thanh toán, tiền của bạn sẽ được giữ an toàn trong ví ký quỹ. Chúng tôi cam kết 100% hoàn trả nếu đơn hàng không được giao thành công do lỗi của k-Bridge hoặc đối tác vận chuyển Hàn Quốc.
+              <b>Chế độ Pending Protection:</b> Khi bạn thanh toán, tiền của bạn sẽ được giữ an toàn trong ví ký quỹ. Chúng tôi cam kết 100% hoàn trả nếu đơn hàng không được giao thành công .
             </li>
             <li>
               <b>Dấu mộc kỹ thuật số:</b> Mỗi hợp đồng sau khi bạn xác nhận sẽ được hệ thống k-Bridge gán một mã băm (Hash ID) độc nhất, đảm bảo tính pháp lý và không thể thay đổi dữ liệu. Bạn có thể kiểm tra mã này trong mục Lịch sử đơn hàng.
