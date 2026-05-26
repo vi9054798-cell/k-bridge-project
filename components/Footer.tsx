@@ -6,6 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0a0b10] border-t border-gray-800 text-gray-400 text-sm mt-20">
       <div className="max-w-7xl mx-auto px-4 py-12">
+        {/* KHU VỰC 4 CỘT CHÍNH (Giữ nguyên cấu trúc cũ) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
           {/* CỘT 1: THÔNG TIN DOANH NGHIỆP */}
@@ -19,7 +20,6 @@ export default function Footer() {
             <p><i className="fa-solid fa-phone w-5"></i> Hotline (24/7): 1900-9999</p>
             <p><i className="fa-solid fa-envelope w-5"></i> cs@kbridge.vn</p>
             
-            {/* Giả lập Logo Bộ Công Thương */}
             <Link href="#" className="inline-block mt-4">
               <div className="border-2 border-blue-500 rounded-lg p-2 flex items-center gap-2 bg-blue-900/20 hover:bg-blue-900/40 transition">
                 <i className="fa-solid fa-check-circle text-blue-500 text-xl"></i>
@@ -70,28 +70,50 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* CỘT 4: PHÁP LÝ & CHÍNH SÁCH */}
+          {/* CỘT 4: MENU PHÁP LÝ TÓM TẮT */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-6">Pháp Lý & Chính Sách</h3>
+            <h3 className="text-white font-bold text-lg mb-6">Pháp Lý & Hỗ Trợ</h3>
             <ul className="space-y-3">
               <li><Link href="#" className="hover:text-emerald-400 transition">Chính sách bảo mật (NĐ 13/2023)</Link></li>
               <li><Link href="#" className="hover:text-emerald-400 transition">Điều khoản sử dụng dịch vụ</Link></li>
-              <li>
-                <Link href="#" className="hover:text-emerald-400 transition block">
-                  Chính sách Đổi trả & Hoàn tiền
-                  <span className="block text-xs text-amber-500 mt-1">*Yêu cầu Video Unboxing nguyên vẹn</span>
-                </Link>
-              </li>
-              <li><Link href="#" className="hover:text-emerald-400 transition">Chính sách hủy đơn (Bảo vệ MOQ)</Link></li>
+              <li><Link href="#" className="hover:text-emerald-400 transition block">Trung tâm hỗ trợ khách hàng</Link></li>
+              <li><Link href="#" className="hover:text-emerald-400 transition block">Liên hệ hợp tác B2B</Link></li>
             </ul>
           </div>
 
         </div>
 
-        {/* BẢN QUYỀN */}
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+        {/* =========================================================================
+            TÍNH NĂNG MỚI: KHU VỰC TUYÊN BỐ PHÁP LÝ & CHÍNH SÁCH CỐT LÕI (DISCLAIMER)
+            ========================================================================= */}
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <h4 className="text-gray-500 font-black mb-4 uppercase text-xs tracking-widest">Tuyên bố pháp lý & Chính sách cốt lõi</h4>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-[11px] text-gray-400 leading-relaxed text-justify">
+            <div>
+              <p className="mb-3">
+                <strong className="text-gray-300">1. Định nghĩa Tiền đặt cọc & Cơ sở pháp lý:</strong> Số tiền thu ở Đợt 1 được định nghĩa là <em>"Tiền đặt cọc nhằm bảo đảm thực hiện giao dịch sỉ"</em>, hoàn toàn không phải là "tiền trả trước mua hàng" (Prepayment) hay "doanh thu nhận trước". Vì là tiền cọc bảo đảm khi chưa giao hàng hóa, k-Bridge không phải lập hóa đơn GTGT tại thời điểm nhận tiền theo Nghị định 123/2020/NĐ-CP (sửa đổi bởi Nghị định 70/2025/NĐ-CP). Hóa đơn GTGT chỉ được xuất khi thực tế bàn giao sản phẩm thành công.
+              </p>
+              <p>
+                <strong className="text-gray-300">2. Chính sách hủy đợt GO do không đủ MOQ:</strong> Quy định rõ nếu đợt gom sỉ không đạt đủ số lượng tối thiểu trong thời gian khảo sát, k-Bridge sẽ hủy dự án và hoàn trả lại 100% tiền đặt cọc cho khách hàng.
+              </p>
+            </div>
+            
+            <div>
+              <p className="mb-3">
+                <strong className="text-gray-300">3. Chính sách chống gian lận (Anti-fraud Refund):</strong> Để tuân thủ luật phòng chống rửa tiền và gian lận trực tuyến, k-Bridge cam kết chỉ hoàn trả tiền về đúng tài khoản ngân hàng hoặc ví điện tử nguồn mà khách hàng đã sử dụng để chuyển khoản đợt 1.
+              </p>
+              <p>
+                <strong className="text-amber-500/80">4. Quy định về Video mở hộp (Unboxing Video Requirement):</strong> Nhằm phân định trách nhiệm pháp lý khi hàng bị móp méo/thiếu hụt do vận chuyển, quy định khách hàng BẮT BUỘC phải cung cấp video unbox 360 độ còn nguyên seal vận chuyển của k-Bridge để làm căn cứ xử lý khiếu nại.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* BẢN QUYỀN (Giữ nguyên) */}
+        <div className="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500">
           <p>© 2026 k-Bridge Vietnam. Đồ án Kinh doanh số.</p>
-          <div className="flex gap-4 mt-4 md:mt-0 text-lg">
+          <div className="flex gap-4 mt-4 md:mt-0 text-base">
             <Link href="#" className="hover:text-white transition"><i className="fa-brands fa-facebook"></i></Link>
             <Link href="#" className="hover:text-white transition"><i className="fa-brands fa-instagram"></i></Link>
             <Link href="#" className="hover:text-white transition"><i className="fa-brands fa-tiktok"></i></Link>
