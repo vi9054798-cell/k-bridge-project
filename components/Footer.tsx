@@ -92,7 +92,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-[11px] text-gray-400 leading-relaxed text-justify">
             <div>
               <p className="mb-3">
-                <strong className="text-gray-300">1. Định nghĩa Tiền đặt cọc & Cơ sở pháp lý:</strong> Số tiền thu ở Đợt 1 được định nghĩa là <em>"Tiền đặt cọc nhằm bảo đảm thực hiện giao dịch sỉ"</em>, hoàn toàn không phải là "tiền trả trước mua hàng" (Prepayment) hay "doanh thu nhận trước". Vì là tiền cọc bảo đảm khi chưa giao hàng hóa, k-Bridge không phải lập hóa đơn GTGT tại thời điểm nhận tiền theo Nghị định 123/2020/NĐ-CP (sửa đổi bởi Nghị định 70/2025/NĐ-CP). Hóa đơn GTGT chỉ được xuất khi thực tế bàn giao sản phẩm thành công.
+                <strong className="text-gray-300">1. Định nghĩa Tiền đặt cọc & Cơ sở pháp lý:</strong> Số tiền thu được định nghĩa là <em>"Tiền đặt cọc nhằm bảo đảm thực hiện giao dịch sỉ"</em>, hoàn toàn không phải là "tiền trả trước mua hàng" (Prepayment) hay "doanh thu nhận trước". Vì là tiền cọc bảo đảm khi chưa giao hàng hóa, k-Bridge không phải lập hóa đơn GTGT tại thời điểm nhận tiền theo Nghị định 123/2020/NĐ-CP (sửa đổi bởi Nghị định 70/2025/NĐ-CP). Hóa đơn GTGT chỉ được xuất khi thực tế bàn giao sản phẩm thành công.
               </p>
               <p>
                 <strong className="text-gray-300">2. Chính sách hủy đợt GO do không đủ MOQ:</strong> Quy định rõ nếu đợt gom sỉ không đạt đủ số lượng tối thiểu trong thời gian khảo sát, k-Bridge sẽ hủy dự án và hoàn trả lại 100% tiền đặt cọc cho khách hàng.
@@ -101,7 +101,7 @@ export default function Footer() {
             
             <div>
               <p className="mb-3">
-                <strong className="text-gray-300">3. Chính sách chống gian lận (Anti-fraud Refund):</strong> Để tuân thủ luật phòng chống rửa tiền và gian lận trực tuyến, k-Bridge cam kết chỉ hoàn trả tiền về đúng tài khoản ngân hàng hoặc ví điện tử nguồn mà khách hàng đã sử dụng để chuyển khoản đợt 1.
+                <strong className="text-gray-300">3. Chính sách chống gian lận (Anti-fraud Refund):</strong> Để tuân thủ luật phòng chống rửa tiền và gian lận trực tuyến, k-Bridge cam kết chỉ hoàn trả tiền về đúng tài khoản ngân hàng hoặc ví điện tử nguồn mà khách hàng đã sử dụng để chuyển khoản .
               </p>
               <p>
                 <strong className="text-amber-500/80">4. Quy định về Video mở hộp (Unboxing Video Requirement):</strong> Nhằm phân định trách nhiệm pháp lý khi hàng bị móp méo/thiếu hụt do vận chuyển, quy định khách hàng BẮT BUỘC phải cung cấp video unbox 360 độ còn nguyên seal vận chuyển của k-Bridge để làm căn cứ xử lý khiếu nại.

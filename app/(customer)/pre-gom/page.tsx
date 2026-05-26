@@ -172,7 +172,7 @@ export default function PreGomHubPage() {
                   Gửi khảo sát nhu cầu
                 </button>
                 <p className="text-[11px] text-gray-500 text-center mt-4 leading-relaxed px-2">
-                  <i className="fa-solid fa-circle-info mr-1"></i> Bấm tham gia khảo sát hoàn toàn miễn phí. Hệ thống sẽ tự động gửi thông báo qua Email/Zalo cho bạn ngay khi đợt GOM chính thức được mở để đóng tiền Đợt 1.
+                  <i className="fa-solid fa-circle-info mr-1"></i> Bấm tham gia khảo sát hoàn toàn miễn phí. Hệ thống sẽ tự động gửi thông báo qua Email/Zalo cho bạn ngay khi đợt GOM chính thức được mở để đóng tiền .
                 </p>
               </div>
             </form>
